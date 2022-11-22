@@ -60,15 +60,15 @@
             </div>
         <div class="modal-footer text-center">
             copy@ write
-                <!-- <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">X</button> -->
-                <!-- <button type="button" class="btn btn-primary">Understood</button> -->
+                <button type="button" class="btn btn-secondary " data-bs-dismiss="modal">X</button> 
+                <button type="button" class="btn btn-primary">Understood</button> -->
             </div>
             </div>
         </div>
     </div> 
     
 
-    <form method="post">
+    <form autocomplete="off" onsubmit="event.preventDefault();onformSubmit();">
                         <div class="mb-3">
                             <label for="username" class="form-label">Name</label>
                             <input type="text" class="form-control" autocomplete="off" maxlength="18"  placeholder="Enter your name" id="username" aria-describedby="usernae">
@@ -113,7 +113,7 @@
             </th>
             
         </tr>
-        <tbody></tbody>
+        <tbody id="formD"></tbody>
     </table>
 
 
@@ -121,31 +121,32 @@
     
       <!-- custom javascript language sheeet start in link  -->
       <script>
-          function onformsuBmit(){
+          function onformSubmit(){
             var formData = readformData();
-            inseriNewRead(data);
+            inseriNewRead(formData);
           }
           function readformData(){
             var formData = {};
-            formDate["username"] = document.getElementById("username").value;
-            formDate["useremail"] = document.getElementById("useremail").value;
-            formDate["usermobile"] = document.getElementById("usermobile").value;
-            formDate["userpass"] = document.getElementById("userpass").value;
+            formData["username"] = document.getElementById("username").value;
+            formData["useremail"] = document.getElementById("useremail").value;
+            formData["usermobile"] = document.getElementById("usermobile").value;
+            formData["userpass"] = document.getElementById("userpass").value;
             return formData;
           }
           function inseriNewRead(data){
-            var table =document.getElementById("tableid").getElementsByTagName.("tbody")[0];
+            var table =document.getElementById("tableid").getElementsById('formD')[0];
             var newRow = table.insertRow(table.length);
-            cell1= newRow.insertRow(0);
-            cell1.innerHRML=data.username;
-            cell2= newRow.insertRow(1);
-            cell1.innerHRML=data.useremail;
-            cell3= newRow.insertRow(2);
-            cell1.innerHRML=data.usermobile;
-            cell4= newRow.insertRow(3);
-            cell1.innerHRML=data.userpass;
-            cell5= newRow.insertRow(4);
-            cell1.innerHRML=data.;
+            cell1= newRow.insertCell(0);
+            cell1.innerHTML=data.username;
+            console.log(username);
+            cell2= newRow.insertCell(1);
+            cell1.innerHTML=data.useremail;
+            cell3= newRow.insertCell(2);
+            cell1.innerHTML=data.usermobile;
+            cell4= newRow.insertCell(3);
+            cell1.innerHTML=data.userpass;
+            cell5= newRow.insertCell(4);  
+            
           }
 
       </script>
